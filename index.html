@@ -200,7 +200,7 @@
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      const res = await fetch("http://localhost:5678/webhook/chat", {
+      const res = await fetch("https://jvdll.app.n8n.cloud/webhook/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, user: "ShopifyUser" })
@@ -234,3 +234,4 @@
     }
   });
 </script>
+
