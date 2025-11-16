@@ -8,7 +8,9 @@
       🏋️ Gym Assistant
       <span id="chat-close">✖</span>
     </div>
+
     <div id="chat-messages"></div>
+
     <div id="chat-input-area">
       <input type="text" id="chat-input" placeholder="Type a message..." />
       <button id="chat-send">Send</button>
@@ -71,7 +73,7 @@
     bottom: 100px;
     right: 20px;
     width: 420px;
-    height: 600px;
+    height: 520px; /* ⬅️ shortened from 600px */
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
@@ -182,14 +184,8 @@
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
@@ -238,7 +234,10 @@
       const res = await fetch("https://jvdll.app.n8n.cloud/webhook/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, user: "GymUser" }),
+        body: JSON.stringify({
+          message: text,
+          user: "GymUser"
+        }),
       });
 
       const data = await res.json();
@@ -261,5 +260,4 @@
     if (e.key === "Enter") sendMessage().catch(console.error);
   });
 </script>
-
 
